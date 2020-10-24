@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html style="font-family:Comic Sans MS">
+    <head>
+        <title>javaScript > Python</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script src="http://koda.nu/simple.js">
+        var zonenumber = prompt("Select the zone number from 3 to 10.");
+        var zone1 = {x: 0, y: 0, size: 435, ringsize: 3, color: "white"};
+        var zone2 = {x: 0, y: 0, size: zone1.size / 1.5, ringsize: 3, color: "white"};
+        var zone3 = {x: 0, y: 0, size: zone1.size / 1.5 / 1.5, ringsize: 3, color: "white"};
+        var zonelocationset1 = 0;
+        var zonelocationset2 = 0;
+        var zonelocationset3 = 0;
+        function update(){
+            rectangle(0, 0, totalWidth, totalHeight, "lightgrey");
+            picture(totalWidth / 4, 0, "map.jpg", 970, totalHeight);
+
+            if (keyboard.one && zonelocationset1 == 0) {
+                zone1.x = mouse.x + 435;
+                zone1.y = mouse.y;
+                zonelocationset1 = 1;
+            }
+            if (zonelocationset1 == 1) {
+                ring(zone1.x, zone1.y, zone1.size, zone1.ringsize, zone1.color);
+            }
+
+            if (keyboard.two && zonelocationset2 == 0) {
+                zone2.x = mouse.x + zone2.size;
+                zone2.y = mouse.y;
+                zonelocationset2 = 1;
+            }
+            if (zonelocationset2 == 1) {
+                ring(zone2.x, zone2.y, zone2.size, zone2.ringsize, zone2.color);
+            }
+
+            //zone3
+
+            if (keyboard.three && zonelocationset3 == 0 && zonenumber !== "3") {
+                zone3.x = mouse.x + zone3.size;
+                zone3.y = mouse.y;
+                zonelocationset3 = 1;
+            }
+            if (zonelocationset3 == 1) {
+                ring(zone3.x, zone3.y, zone3.size, zone3.ringsize, zone3.color);
+            }
+
+            if (zonenumber == "3") {
+                
+            }
+        }
+        </script>
+    </body>
+</html>
